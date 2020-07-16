@@ -3,17 +3,16 @@ const config = require('../config/config');
 const { validationResult } = require('express-validator');
 
 module.exports = {
-    get: {
-
+    get: (req, res, next) => {
+        models.Post.find()
+            .then((posts) => res.send(posts))
+            .catch(next)
     },
 
     post: {
         create: (req, res, next) => {
 
-            const { title, description } = req.body;
-            console.log(title + description)
-
-            const createdAt = new Date();
+            const { title, description, imageUrl, createdAt } = req.body;
 
             const errors = validationResult(req);
 
@@ -23,7 +22,7 @@ module.exports = {
                     oldInput: req.body
                 });
             }
-            models.Post.create({ title, description, createdAt, creator: req.user.id }).then((createdItem) => {
+            models.Post.create({ title, description, imageUrl, createdAt, creator: req.user.id }).then((createdItem) => {
                 res.send(createdItem);
             })
         }

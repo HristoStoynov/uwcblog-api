@@ -5,10 +5,7 @@ const config = require('./config')
 const cors = require('cors')
 
 module.exports = (app) => {
-    app.use(cors({
-        origin: config.dbURL,
-        credentials: true
-    }));
+    app.use(cors())
 
     app.use(cookieParser());
 

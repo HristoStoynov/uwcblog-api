@@ -18,6 +18,11 @@ const postSchema = new Schema({
         minlength: 20
     },
 
+    imageUrl: {
+        type: String,
+        required: true
+    },
+
     createdAt: {
         type: String,
         required: true
