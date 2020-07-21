@@ -3,7 +3,9 @@ const controllers = require('../controllers');
 const auth = require('../utils/auth');
 const postValidator = require('../utils/postValidator')
 
-router.get('/get', controllers.post.get)
+router.get('/getOne', controllers.post.get.one)
+
+router.get('/getAll', controllers.post.get.all)
 
 router.post('/create', auth(), postValidator, controllers.post.post.create);
 
