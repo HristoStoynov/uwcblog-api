@@ -15,8 +15,7 @@ module.exports = {
             models.User.create({ username, password })
                 .then((createdUser) => {
                     const token = utils.jwt.createToken({ id: createdUser._id });
-                    res.cookie(config.cookie, token).send(createdUser);
-                    res.send(createdUser)
+                    res.header("Authorization", token).send(createdUser);
                 })
                 .catch(next)
         },
@@ -32,7 +31,7 @@ module.exports = {
                     }
 
                     const token = utils.jwt.createToken({ id: user._id });
-                    res.cookie(config.cookie, token).send(user);
+                    res.header("Authorization", token).send(user);
                 })
                 .catch(next);
         },
