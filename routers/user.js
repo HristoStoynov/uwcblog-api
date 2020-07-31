@@ -7,6 +7,8 @@ router.post('/logout', auth(), controllers.user.post.logout);
 
 router.post('/login', controllers.user.post.login);
 
+router.post('/verify', controllers.user.post.verify);
+
 router.post('/register', controllers.user.post.register);
 
 
