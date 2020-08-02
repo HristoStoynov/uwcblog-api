@@ -7,7 +7,7 @@ router.get('/getOne', controllers.post.get.one)
 
 router.get('/getAll', controllers.post.get.all)
 
-router.post('/create', auth(), postValidator, controllers.post.post.create);
+router.post('/create', postValidator, controllers.post.post.create);
 
 //router.post('/edit/:itemId', auth(), itemValidator, controllers.item.post.edit);
 
