@@ -14,7 +14,6 @@ function auth(redirectUnauthenticated = true) {
             });
         }).catch(err => {
             if (!redirectUnauthenticated) { next(); return; }
-            res.redirect('/user/login')
         });
     };
 }

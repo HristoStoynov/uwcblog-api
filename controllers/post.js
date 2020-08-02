@@ -20,17 +20,9 @@ module.exports = {
     post: {
         create: (req, res, next) => {
 
-            const { title, description, imageUrl, createdAt } = req.body;
+            const { title, description, imageUrl, createdAt, creator } = req.body;
 
-            const errors = validationResult(req);
-
-            if (!errors.isEmpty()) {
-                res.send({
-                    message: errors.array()[0].msg,
-                    oldInput: req.body
-                });
-            }
-            models.Post.create({ title, description, imageUrl, createdAt, creator: req.user.id }).then((createdItem) => {
+            models.Post.create({ title, description, imageUrl, createdAt, creator }).then((createdItem) => {
                 res.send(createdItem);
             })
         }
