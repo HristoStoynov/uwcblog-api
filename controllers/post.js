@@ -19,7 +19,6 @@ module.exports = {
 
     post: {
         create: (req, res, next) => {
-
             const { title, description, imageUrl, createdAt, creator } = req.body;
 
             models.Post.create({ title, description, imageUrl, createdAt, creator }).then((createdItem) => {
