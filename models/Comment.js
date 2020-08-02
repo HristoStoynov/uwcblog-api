@@ -16,12 +16,6 @@ const commentSchema = new Schema({
         required: true
     },
 
-    onPost: {
-        type: ObjectId,
-        ref: "Post",
-        required: true
-    },
-
     creator: {
         type: ObjectId,
         required: true

@@ -1,6 +1,4 @@
 const models = require('../models');
-const config = require('../config/config');
-const { validationResult } = require('express-validator');
 
 module.exports = {
     get: {
