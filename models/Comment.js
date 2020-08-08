@@ -11,14 +11,13 @@ const commentSchema = new Schema({
         minlength: 5
     },
 
-    createdAt: {
-        type: Date,
-        required: true
-    },
-
     creator: {
         type: ObjectId,
         required: true
+    },
+
+    answer: {
+        type: String
     }
 
 });

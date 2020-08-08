@@ -10,7 +10,7 @@ module.exports = {
     post: (req, res, next) => {
         const { text, creator } = req.body;
 
-        models.Post.create({ text, creator }).then((createdItem) => {
+        models.Comment.create({ text, creator }).then((createdItem) => {
             res.send(createdItem);
         })
     }
