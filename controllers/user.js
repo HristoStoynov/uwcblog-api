@@ -9,6 +9,12 @@ module.exports = {
             .catch(next)
     },
 
+    getOne: (req, res, next) => {
+        models.User.findById(req.query.id)
+            .then((user) => res.send(user))
+            .catch(next)
+    },
+
     post: {
         register: (req, res, next) => {
             const { username, password } = req.body;

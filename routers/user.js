@@ -11,5 +11,6 @@ router.post('/verify', controllers.user.post.verify);
 
 router.post('/register', controllers.user.post.register);
 
+router.get('/getOne', controllers.user.getOne)
 
 module.exports = router;
