@@ -22,6 +22,24 @@ module.exports = {
             models.Post.create({ title, description, imageUrl, createdAt, creator }).then((createdItem) => {
                 res.send(createdItem);
             })
+        },
+
+        delete: (req, res, next) => {
+            const { userId } = req.body;
+
+            models.Post.findById(req.query.id)
+                .then(post => {
+                    if (post.creator == userId) {
+                        try {
+                            models.Post.findByIdAndDelete(post._id, () => {
+                                console.log('sd')
+                            })
+                        } catch (err) {
+                            console.log(err)
+                        }
+                    }
+                })
+                .catch(next)
         }
 
 

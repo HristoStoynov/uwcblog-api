@@ -9,6 +9,8 @@ router.get('/getAll', controllers.post.get.all)
 
 router.post('/create', postValidator, controllers.post.post.create);
 
+router.post('/delete', controllers.post.post.delete);
+
 //router.post('/edit/:itemId', auth(), itemValidator, controllers.item.post.edit);
 
 module.exports = router;
