@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const controllers = require('../controllers');
-const auth = require('../utils/auth');
+const { auth } = require('../utils/');
 const userValidator = require('../utils/userValidator')
 
 router.post('/logout', auth(), controllers.user.post.logout);

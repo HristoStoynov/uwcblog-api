@@ -13,5 +13,13 @@ module.exports = {
         models.Comment.create({ text, creator }).then((createdItem) => {
             res.send(createdItem);
         })
+    },
+
+    answer: (req, res, next) => {
+        const { answer } = req.body;
+
+        models.Comment.findByIdAndUpdate({ answer: answer })
+            .then((answer) => res.send(answer))
+            .catch(next)
     }
 }
