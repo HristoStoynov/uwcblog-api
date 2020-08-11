@@ -18,7 +18,7 @@ module.exports = {
     answer: (req, res, next) => {
         const { answer } = req.body;
 
-        models.Comment.findByIdAndUpdate({ answer: answer })
+        models.Comment.findByIdAndUpdate(req.query.id, { answer: answer })
             .then((answer) => res.send(answer))
             .catch(next)
     }
