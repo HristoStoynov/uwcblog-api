@@ -31,9 +31,10 @@ module.exports = {
                 .then(post => {
                     if (post.creator == userId) {
                         try {
-                            models.Post.findByIdAndDelete(post._id, () => {
-                                console.log('sd')
-                            })
+                            models.Post.findByIdAndDelete(post._id)
+                                .then(() => {
+                                    res.sendStatus(201)
+                                })
                         } catch (err) {
                             console.log(err)
                         }
@@ -55,7 +56,9 @@ module.exports = {
                             imageUrl: imageUrl,
                             createdAt: createdAt
                         })
-                            .then(val => { })
+                            .then(val => {
+                                res.sendStatus(201)
+                            })
                             .catch(next)
                     }
                 })
