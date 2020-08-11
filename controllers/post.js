@@ -40,18 +40,26 @@ module.exports = {
                     }
                 })
                 .catch(next)
-        }
+        },
 
-
-        /*
         edit: (req, res, next) => {
 
-            const { wikiId } = req.params;
-            const { title, description } = req.body;
+            const { title, description, imageUrl, createdAt, creator } = req.body;
 
-            models.Wiki.findByIdAndUpdate(wikiId, { title, description }).then((updatedWiki) => {
-                res.redirect(`/wiki/view/${wikiId}`);
-            });
-        }*/
+            models.Post.findById(req.query.id)
+                .then((post) => {
+                    if (creator == post.creator) {
+                        models.Post.findOneAndUpdate({ _id: req.query.id }, {
+                            title: title,
+                            description: description,
+                            imageUrl: imageUrl,
+                            createdAt: createdAt
+                        })
+                            .then(val => { })
+                            .catch(next)
+                    }
+                })
+                .catch(next)
+        }
     }
 };
