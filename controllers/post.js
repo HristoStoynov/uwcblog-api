@@ -30,14 +30,11 @@ module.exports = {
             models.Post.findById(req.query.id)
                 .then(post => {
                     if (post.creator == userId) {
-                        try {
-                            models.Post.findByIdAndDelete(post._id)
-                                .then(() => {
-                                    res.sendStatus(201)
-                                })
-                        } catch (err) {
-                            console.log(err)
-                        }
+                        models.Post.findByIdAndDelete(post._id)
+                            .then(val => {
+                                res.sendStatus(201)
+                            })
+                            .catch(next)
                     }
                 })
                 .catch(next)

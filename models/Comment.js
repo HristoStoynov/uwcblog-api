@@ -11,11 +11,6 @@ const commentSchema = new Schema({
         minlength: 5
     },
 
-    creator: {
-        type: ObjectId,
-        required: true
-    },
-
     answer: {
         type: String
     }
