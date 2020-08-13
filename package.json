@@ -19,6 +19,9 @@
         "mongodb": "^3.3.3",
         "mongoose": "^5.7.6"
     },
+    "engines": {
+        "node": "10.16.1"
+    },
     "devDependencies": {
         "nodemon": "^1.19.4"
     }
